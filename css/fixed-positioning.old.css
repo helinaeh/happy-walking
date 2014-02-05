@@ -1,0 +1,245 @@
+ h1 {
+ 	color: red;
+  font-size: 700%;
+	text-align: center;
+  font-family: 'Dosis', sans-serif;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.bg {
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+html, body {
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+	overflow-x:hidden;
+}
+
+#title {
+
+}
+
+#frame {
+  width: 300px;
+  height: 350px;
+  /*background-color: blue;*/
+}
+
+#character {
+  position: absolute;
+  width: 300px;
+  height: 315px;
+  margin-top: 35px;
+  /*background-color: orange;*/
+  -webkit-animation: jump 1s infinite forwards;
+  -moz-animation: jump 1s infinite forwards;
+  animation: jump 1s infinite forwards;
+}
+
+#head {
+  z-index: 3;
+  position: absolute;
+  left: 3%;
+}
+
+#body {
+  z-index: 2;
+  position: absolute;
+  left: 35%;
+  margin-left: -40px;
+  margin-top: 145px;
+}
+
+#righthand {
+  z-index: 3;
+  position: absolute;
+  left: 5%;
+  margin-top: 210px;
+  -webkit-animation: righthandanim 1s infinite forwards;
+  -moz-animation: righthandanim 1s infinite forwards;
+  animation: righthandanim 1s infinite forwards;
+}
+
+#lefthand {
+  z-index: 1;
+  position: absolute;
+  left: 60%;
+  margin-top: 185px;
+  -webkit-animation: lefthandanim 1s infinite forwards;
+  -moz-animation: lefthandanim 1s infinite forwards;
+  animation: lefthandanim 1s infinite forwards;
+}
+
+#feet {
+  position: absolute;
+  width: 300px;
+  height: 100px;
+  margin-top: 250px;
+  /*background-color: purple;*/
+}
+
+#rightfoot {
+  z-index: 3;
+  position: absolute;
+  left: 20%;
+  margin-top: 65px;
+}
+
+#leftfoot {
+  z-index: 1;
+  position: absolute;
+  left: 40%;
+  margin-top: 65px;
+}
+
+@-webkit-keyframes jump {
+  0% {
+    top: 0;
+    -webkit-animation-timing-function: ease-in;
+  }
+  25% {
+    top: -10px;
+    -webkit-animation-timing-function: ease-out;
+  }
+  50% {
+    top: -20px;
+    -webkit-animation-timing-function: ease-in;
+  }
+  75% {
+    top: -10px;
+    -webkit-animation-timing-function: ease-out;
+  }
+  100% {
+    top: 0;
+    -webkit-animation-timing-function: ease-in;
+  }
+}
+
+@-moz-keyframes jump {
+  0% {
+    top: 0;
+    -moz-animation-timing-function: ease-in;
+  }
+  25% {
+    top: -10px;
+    -moz-animation-timing-function: ease-out;
+  }
+  50% {
+    top: -20px;
+    -moz-animation-timing-function: ease-in;
+  }
+  75% {
+    top: -10px;
+    -moz-animation-timing-function: ease-out;
+  }
+  100% {
+    top: 0;
+    -moz-animation-timing-function: ease-in;
+  }
+}
+
+@keyframes jump {
+  0% {
+    top: 0;
+    animation-timing-function: ease-in;
+  }
+  25% {
+    top: -10px;
+    animation-timing-function: ease-out;
+  }
+  50% {
+    top: -20px;
+    animation-timing-function: ease-in;
+  }
+  75% {
+    top: -10px;
+    animation-timing-function: ease-out;
+  }
+  100% {
+    top: 0;
+    animation-timing-function: ease-in;
+  }
+}
+
+@-webkit-keyframes righthandanim {
+  0% {
+    left: 5%;
+    -webkit-animation-timing-function: ease-in;
+  }
+  50% {
+    left: 10%;
+    -webkit-animation-timing-function: ease-out;
+  }
+}
+
+@keyframes righthandanim {
+  0% {
+    left: 5%;
+    animation-timing-function: ease-in;
+  }
+  50% {
+    left: 10%;
+    animation-timing-function: ease-out;
+  }
+}
+
+@-webkit-keyframes lefthandanim {
+  0% {
+    left: 60%;
+    -webkit-animation-timing-function: ease-in;
+  }
+  50% {
+    left: 55%;
+    -webkit-animation-timing-function: ease-out;
+  }
+}
+
+@keyframes lefthandanim {
+  0% {
+    left: 60%;
+    animation-timing-function: ease-in;
+  }
+  50% {
+    left: 55%;
+    animation-timing-function: ease-out;
+  }
+}
+
+.skrollable {
+	/*
+	 * First-level skrollables are positioned relative to window
+	 */
+	position:fixed;
+
+	/*
+	 * Skrollables by default have a z-index of 100 in order to make it easy to position elements in front/back without changing each skrollable
+	 */
+	z-index:100;
+}
+
+/*
+.skrollable.unrendered {
+	display:none !important;
+}
+*/
+
+.skrollable .skrollable {
+	/*
+	 * Second-level skrollables are positioned relative their parent skrollable
+	 */
+	position:absolute;
+}
+
+.skrollable .skrollable .skrollable {
+	/*
+	 * Third-level (and below) skrollables are positioned static
+	 */
+	position:static;
+}
